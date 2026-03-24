@@ -38,6 +38,13 @@
 	});
 </script>
 
+<svelte:head>
+	<title>{content?.headline || content?.title || content?.name || story?.name || 'Story Drops'}</title>
+	{#if content?.subheadline || content?.description}
+		<meta name="description" content={content?.subheadline || (typeof content?.description === 'string' ? content.description : '')} />
+	{/if}
+</svelte:head>
+
 {#key story?.id}
 	{#if content}
 		<StoryblokComponent blok={content} />

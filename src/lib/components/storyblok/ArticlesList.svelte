@@ -41,7 +41,7 @@
 							href={`/${story.full_slug}`}
 							class="inline-flex items-center font-medium text-sm underline underline-offset-4 text-brand-accent hover:no-underline"
 						>
-							Read more
+							Read more<span class="sr-only">: {story.content?.headline || story.name}</span>
 						</a>
 					</article>
 				{/if}
