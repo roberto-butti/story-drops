@@ -1,0 +1,9 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- drop scaled and centered in a 32x32 square -->
+  <path d="M16 2 C16 2, 3 18, 3 26 A13 13 0 0 0 29 26 C29 18 16 2 16 2Z" fill="#4A3728"/>
+  <!-- eyes simplified for favicon size -->
+  <ellipse cx="11.5" cy="25" rx="2.5" ry="3" fill="#F5EDE4"/>
+  <ellipse cx="12" cy="24.5" rx="1.2" ry="1.5" fill="#2A1F17"/>
+  <ellipse cx="20.5" cy="25" rx="2.5" ry="3" fill="#F5EDE4"/>
+  <ellipse cx="21" cy="24.5" rx="1.2" ry="1.5" fill="#2A1F17"/>
+</svg>

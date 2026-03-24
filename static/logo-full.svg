@@ -1,0 +1,15 @@
+<svg width="240" height="60" viewBox="0 0 240 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- drop icon -->
+  <path d="M24 3 C24 3, 5 28, 5 40 A19 19 0 0 0 43 40 C43 28 24 3 24 3Z" fill="#4A3728"/>
+  <ellipse cx="17" cy="38" rx="3.5" ry="4.5" fill="#F5EDE4"/>
+  <ellipse cx="17.8" cy="37.2" rx="1.8" ry="2.2" fill="#2A1F17"/>
+  <ellipse cx="18.6" cy="36.4" rx="0.7" ry="0.7" fill="#F5EDE4" opacity="0.9"/>
+  <ellipse cx="31" cy="38" rx="3.5" ry="4.5" fill="#F5EDE4"/>
+  <ellipse cx="31.8" cy="37.2" rx="1.8" ry="2.2" fill="#2A1F17"/>
+  <ellipse cx="32.6" cy="36.4" rx="0.7" ry="0.7" fill="#F5EDE4" opacity="0.9"/>
+  <ellipse cx="34" cy="22" rx="3" ry="5" fill="#C8B49A" opacity="0.35" transform="rotate(-20 34 22)"/>
+  <!-- wordmark -->
+  <text x="58" y="38" font-family="Georgia, serif" font-size="28" font-weight="500" fill="#4A3728" letter-spacing="-0.5">Story Drops</text>
+  <!-- tagline -->
+  <text x="59" y="52" font-family="system-ui, sans-serif" font-size="10" fill="#8C7B6B" letter-spacing="1.8">OPINIONATED STORYBLOK</text>
+</svg>
