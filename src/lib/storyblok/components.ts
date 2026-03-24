@@ -9,6 +9,7 @@ import Article from '$lib/components/storyblok/Article.svelte'
 import ArticleCategory from '$lib/components/storyblok/ArticleCategory.svelte'
 import CategoriesList from '$lib/components/storyblok/CategoriesList.svelte'
 import FeaturedArticles from '$lib/components/storyblok/FeaturedArticles.svelte'
+import TextSection from '$lib/components/storyblok/TextSection.svelte'
 
 const components: Record<string, Component<any>> = {
 	page: Page,
@@ -21,7 +22,8 @@ const components: Record<string, Component<any>> = {
 	'article-category': ArticleCategory,
 	categories_list: CategoriesList,
 	'categories-list': CategoriesList,
-	'featured-articles': FeaturedArticles
+	'featured-articles': FeaturedArticles,
+	'text-section': TextSection
 }
 
 const nonVisualTypes = new Set(['config'])
