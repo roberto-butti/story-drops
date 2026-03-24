@@ -80,6 +80,9 @@
 		<img
 			src={`${blok.cover_image.filename}/m/900x500`}
 			alt={blok.cover_image.alt || blok.headline}
+			width="900"
+			height="500"
+			fetchpriority="high"
 			class="mb-8 w-full rounded-lg object-cover"
 		/>
 	{/if}

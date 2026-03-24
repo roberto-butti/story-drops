@@ -20,6 +20,9 @@
 								<img
 									src={`${story.content.cover_image.filename}/m/600x400`}
 									alt={story.content.cover_image.alt || story.name}
+									width="600"
+									height="400"
+									loading="lazy"
 									class="w-full rounded-lg mb-5 aspect-video object-cover"
 								/>
 							</a>
