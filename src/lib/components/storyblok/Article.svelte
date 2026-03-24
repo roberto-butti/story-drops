@@ -1,12 +1,36 @@
 <script lang="ts">
 	import { storyblokEditable, renderRichText } from '$lib/storyblok';
 	import { renderRichTextToMarkdown } from '$lib/storyblok/richtext-markdown';
+	import { highlightCodeBlocks } from '$lib/storyblok/syntax-highlight';
 
 	let { blok } = $props();
 
-	const articleHtml = $derived(blok.text ? renderRichText(blok.text) : '');
+	const rawHtml = $derived(blok.text ? renderRichText(blok.text) : '');
 	const articleMarkdown = $derived(blok.text ? renderRichTextToMarkdown(blok.text) : '');
+	let highlightedHtml = $state<string | null>(null);
 	let showMarkdown = $state(false);
+
+	// Raw HTML renders immediately (SSR). Shiki enhances it on the client.
+	const articleHtml = $derived(highlightedHtml ?? rawHtml);
+
+	$effect(() => {
+		// Reset when content changes, so rawHtml shows while highlighting runs
+		highlightedHtml = null;
+		if (rawHtml) {
+			highlightCodeBlocks(rawHtml).then((result) => {
+				highlightedHtml = result;
+			});
+		}
+	});
+
+	function formatDate(dateStr: string | null | undefined): string {
+		if (!dateStr) return '';
+		return new Date(dateStr).toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric'
+		});
+	}
 </script>
 
 <article use:storyblokEditable={blok} class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 pt-8 pb-16 lg:pt-16 lg:pb-24">
@@ -34,6 +58,21 @@
 			<p class="text-lg text-brand-muted lg:text-xl">
 				{blok.subheadline}
 			</p>
+		{/if}
+		{#if blok._first_published_at || blok._published_at}
+			<div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-brand-muted">
+				{#if blok._first_published_at}
+					<time datetime={blok._first_published_at}>
+						Published {formatDate(blok._first_published_at)}
+					</time>
+				{/if}
+				{#if blok._published_at && blok._published_at !== blok._first_published_at}
+					<span class="text-brand-sand">|</span>
+					<time datetime={blok._published_at}>
+						Updated {formatDate(blok._published_at)}
+					</time>
+				{/if}
+			</div>
 		{/if}
 	</header>
 

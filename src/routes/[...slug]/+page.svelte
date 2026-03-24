@@ -10,9 +10,17 @@
 			? {
 					...bridgeContent,
 					_categories: story?.content?._categories,
-					_articles: story?.content?._articles
+					_articles: story?.content?._articles,
+					_first_published_at: story?.first_published_at,
+					_published_at: story?.published_at
 				}
 			: story?.content
+				? {
+						...story.content,
+						_first_published_at: story.first_published_at,
+						_published_at: story.published_at
+					}
+				: undefined
 	);
 
 	$effect(() => {
