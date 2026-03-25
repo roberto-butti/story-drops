@@ -85,13 +85,14 @@ function inlineRelations(
 
 export async function storyblokFetch(
 	path: string,
-	params: Record<string, unknown> = {}
+	params: Record<string, unknown> = {},
+	customFetch: typeof fetch = fetch
 ): Promise<{ data: any }> {
 	const baseUrl = regionBaseUrls[PUBLIC_STORYBLOK_REGION] || regionBaseUrls.eu
 	const qs = serializeParams({ ...params, token: PUBLIC_STORYBLOK_TOKEN })
 	const url = `${baseUrl}/v2/${path}?${qs}`
 
-	const response = await fetch(url)
+	const response = await customFetch(url)
 	if (!response.ok) {
 		const err: any = new Error(`Storyblok API error: ${response.status}`)
 		err.status = response.status

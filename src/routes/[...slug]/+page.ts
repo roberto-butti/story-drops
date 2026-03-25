@@ -4,7 +4,7 @@ import { error } from '@sveltejs/kit';
 
 const resolveRelations = ['articles_list.articles', 'article.category', 'featured-articles.articles'];
 
-export async function load({ params }) {
+export async function load({ params, fetch }) {
 	const slug = params.slug || 'home';
 
 	try {
@@ -13,7 +13,7 @@ export async function load({ params }) {
 		const { data } = await storyblokFetch(`cdn/stories/${slug}`, {
 			version,
 			resolve_relations: resolveRelations.join(',')
-		});
+		}, fetch);
 
 		const story = data.story;
 
@@ -27,7 +27,7 @@ export async function load({ params }) {
 				},
 				sort_by: 'created_at:desc',
 				per_page: 50
-			});
+			}, fetch);
 			story.content._articles = articlesData.stories;
 		}
 
@@ -38,7 +38,7 @@ export async function load({ params }) {
 				content_type: 'article-category',
 				sort_by: 'name:asc',
 				per_page: 50
-			});
+			}, fetch);
 			story.content._categories = categoriesData.stories || [];
 		}
 

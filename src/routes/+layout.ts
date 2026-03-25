@@ -21,11 +21,11 @@ export const ssr = true;
 // https://kit.svelte.dev/docs/page-options#trailingslash
 export const trailingSlash = 'never';
 
-export async function load() {
+export async function load({ fetch }) {
 	try {
 		const { data } = await storyblokFetch('cdn/stories/config', {
 			version: PUBLIC_STORYBLOK_VERSION as 'draft' | 'published'
-		});
+		}, fetch);
 		return { config: data.story };
 	} catch {
 		return { config: null };
