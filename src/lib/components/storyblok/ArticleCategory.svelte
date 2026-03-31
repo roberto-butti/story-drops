@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { storyblokEditable, renderRichText } from '$lib/storyblok';
+	import Heading from '$lib/components/atoms/Heading.svelte';
+	import Button from '$lib/components/atoms/Button.svelte';
 
 	let { blok } = $props();
 
@@ -24,7 +26,7 @@
 
 		{#if blok._articles?.length}
 			<section class="space-y-8">
-				<h2 class="text-2xl font-bold leading-tight text-brand-ink">Articles</h2>
+				<Heading level={2}>Articles</Heading>
 				<div class="grid grid-cols-1 gap-12 sm:grid-cols-2">
 					{#each blok._articles as article (article.uuid)}
 						<article>
@@ -40,22 +42,19 @@
 									/>
 								</a>
 							{/if}
-							<h3 class="text-xl font-bold leading-tight text-brand-ink mb-2">
+							<Heading level={3} class="mb-2">
 								<a href={`/${article.full_slug}`} class="hover:underline">
 									{article.content?.headline || article.name}
 								</a>
-							</h3>
+							</Heading>
 							{#if article.content?.subheadline}
 								<p class="text-sm text-brand-muted mb-4 leading-relaxed">
 									{article.content.subheadline}
 								</p>
 							{/if}
-							<a
-								href={`/${article.full_slug}`}
-								class="inline-flex items-center font-medium text-sm underline underline-offset-4 text-brand-accent hover:no-underline"
-							>
+							<Button href={`/${article.full_slug}`}>
 								Read more<span class="sr-only">: {article.content?.headline || article.name}</span>
-							</a>
+							</Button>
 						</article>
 					{/each}
 				</div>

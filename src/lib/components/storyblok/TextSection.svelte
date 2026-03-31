@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { storyblokEditable, renderRichText } from '$lib/storyblok';
+	import Heading from '$lib/components/atoms/Heading.svelte';
+	import Button from '$lib/components/atoms/Button.svelte';
 
 	let { blok } = $props();
 
@@ -8,7 +10,7 @@
 
 <section use:storyblokEditable={blok}>
 	{#if blok.headline}
-		<h2 class="text-2xl font-bold leading-tight text-brand-ink mb-4">{blok.headline}</h2>
+		<Heading level={2} class="mb-4">{blok.headline}</Heading>
 	{/if}
 
 	{#if bodyHtml}
@@ -18,13 +20,8 @@
 	{/if}
 
 	{#if blok.cta_label && blok.cta_link}
-		<a
-			href={blok.cta_link.cached_url ? `/${blok.cta_link.cached_url}` : blok.cta_link.url || '#'}
-			target={blok.cta_link.linktype === 'url' ? '_blank' : undefined}
-			rel={blok.cta_link.linktype === 'url' ? 'noopener noreferrer' : undefined}
-			class="inline-flex items-center font-medium text-sm underline underline-offset-4 text-brand-accent hover:no-underline"
-		>
+		<Button href={blok.cta_link.cached_url ? `/${blok.cta_link.cached_url}` : blok.cta_link.url || '#'}>
 			{blok.cta_label}
-		</a>
+		</Button>
 	{/if}
 </section>

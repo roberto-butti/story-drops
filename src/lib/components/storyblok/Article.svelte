@@ -2,6 +2,7 @@
 	import { storyblokEditable, renderRichText } from '$lib/storyblok';
 	import { renderRichTextToMarkdown } from '$lib/storyblok/richtext-markdown';
 	import { highlightCodeBlocks } from '$lib/storyblok/syntax-highlight';
+	import Button from '$lib/components/atoms/Button.svelte';
 
 	let { blok } = $props();
 
@@ -89,12 +90,9 @@
 
 	{#if articleHtml}
 		<div class="mb-6 flex justify-end">
-			<button
-				onclick={() => (showMarkdown = true)}
-				class="inline-flex items-center font-medium underline underline-offset-4 text-brand-accent hover:no-underline text-sm"
-			>
+			<Button variant="link" onclick={() => (showMarkdown = true)}>
 				Show Markdown
-			</button>
+			</Button>
 		</div>
 
 		<div class="prose prose-base sm:prose-base lg:prose-lg max-w-none text-brand-ink prose-headings:font-extrabold prose-headings:leading-tight prose-headings:text-brand-ink prose-a:text-brand-accent prose-a:underline prose-a:underline-offset-4 hover:prose-a:no-underline prose-img:rounded-lg prose-blockquote:border-brand-accent">

@@ -22,12 +22,24 @@ export const ssr = true;
 export const trailingSlash = 'never';
 
 export async function load({ fetch }) {
+	const version = PUBLIC_STORYBLOK_VERSION as 'draft' | 'published';
+
 	try {
-		const { data } = await storyblokFetch('cdn/stories/config', {
-			version: PUBLIC_STORYBLOK_VERSION as 'draft' | 'published'
-		}, fetch);
-		return { config: data.story };
+		const [{ data: configData }, { data: categoriesData }] = await Promise.all([
+			storyblokFetch('cdn/stories/config', { version }, fetch),
+			storyblokFetch('cdn/stories', {
+				version,
+				content_type: 'article-category',
+				sort_by: 'name:asc',
+				per_page: 50
+			}, fetch)
+		]);
+
+		return {
+			config: configData.story,
+			categories: categoriesData.stories || []
+		};
 	} catch {
-		return { config: null };
+		return { config: null, categories: [] };
 	}
 }

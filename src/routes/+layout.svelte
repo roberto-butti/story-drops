@@ -8,10 +8,10 @@
 
 <div class="flex min-h-screen flex-col bg-white antialiased">
 	{#if data.config}
-		<Navbar config={data.config.content} />
+		<Navbar config={data.config.content} categories={data.categories} />
 	{/if}
 
-	<main class="flex-1">
+	<main id="main-content" class="flex-1">
 		{@render children()}
 	</main>
 

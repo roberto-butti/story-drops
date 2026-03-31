@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { renderRichText } from '$lib/storyblok';
+	import Heading from '$lib/components/atoms/Heading.svelte';
 
 	let { title, description }: { title?: string; description?: any } = $props();
 
@@ -7,7 +8,7 @@
 </script>
 
 {#if title}
-	<h2 class="mb-4 text-2xl font-bold leading-tight text-brand-ink">{title}</h2>
+	<Heading level={2} class="mb-4">{title}</Heading>
 {/if}
 
 {#if descriptionHtml}

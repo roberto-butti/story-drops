@@ -2,6 +2,8 @@
 	import { storyblokEditable } from '$lib/storyblok';
 	import { storyblokFetch } from '$lib/storyblok/api';
 	import { PUBLIC_STORYBLOK_VERSION } from '$env/static/public';
+	import Heading from '$lib/components/atoms/Heading.svelte';
+	import Button from '$lib/components/atoms/Button.svelte';
 
 	let { blok } = $props();
 
@@ -31,7 +33,7 @@
 
 <section use:storyblokEditable={blok}>
 	{#if blok.headline}
-		<h2 class="text-2xl font-bold leading-tight text-brand-ink mb-8">{blok.headline}</h2>
+		<Heading level={2} class="mb-8">{blok.headline}</Heading>
 	{/if}
 
 	{#await articlesPromise then articles}
@@ -52,22 +54,19 @@
 								</a>
 							{/if}
 							<div class="min-w-0">
-								<h3 class="text-lg font-bold leading-tight text-brand-ink mb-1">
+								<Heading level={3} size="sm" class="mb-1">
 									<a href={`/${article.full_slug}`} class="hover:underline">
 										{article.content?.headline || article.name}
 									</a>
-								</h3>
+								</Heading>
 								{#if article.content?.subheadline}
 									<p class="text-sm text-brand-muted mb-3 leading-relaxed line-clamp-2">
 										{article.content.subheadline}
 									</p>
 								{/if}
-								<a
-									href={`/${article.full_slug}`}
-									class="inline-flex items-center font-medium text-sm underline underline-offset-4 text-brand-accent hover:no-underline"
-								>
+								<Button href={`/${article.full_slug}`}>
 									Read more<span class="sr-only">: {article.content?.headline || article.name}</span>
-								</a>
+								</Button>
 							</div>
 						</article>
 					{/each}
@@ -88,11 +87,11 @@
 									/>
 								</a>
 							{/if}
-							<h3 class="text-xl font-bold leading-tight text-brand-ink mb-2">
+							<Heading level={3} class="mb-2">
 								<a href={`/${article.full_slug}`} class="hover:underline">
 									{article.content?.headline || article.name}
 								</a>
-							</h3>
+							</Heading>
 							{#if article.content?.subheadline}
 								<p class="text-sm text-brand-muted mb-4 leading-relaxed">
 									{article.content.subheadline}
@@ -103,12 +102,9 @@
 									{new Date(article.first_published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
 								</p>
 							{/if}
-							<a
-								href={`/${article.full_slug}`}
-								class="inline-flex items-center font-medium text-sm underline underline-offset-4 text-brand-accent hover:no-underline"
-							>
+							<Button href={`/${article.full_slug}`}>
 								Read more<span class="sr-only">: {article.content?.headline || article.name}</span>
-							</a>
+							</Button>
 						</article>
 					{/each}
 				</div>

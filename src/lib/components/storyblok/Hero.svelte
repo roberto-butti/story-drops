@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { storyblokEditable } from '$lib/storyblok'
+	import Button from '$lib/components/atoms/Button.svelte'
 
 	let { blok } = $props()
 </script>
@@ -14,12 +15,8 @@
 		</p>
 	{/if}
 	{#if blok.cta_label && blok.cta_link}
-		<a
-			href={blok.cta_link.cached_url ? `/${blok.cta_link.cached_url}` : blok.cta_link.url || '#'}
-			class="inline-flex items-center gap-2 font-sans text-sm font-bold text-white
-			       bg-brand-accent rounded-lg px-6 py-3 hover:bg-blue-700 transition-colors"
-		>
+		<Button href={blok.cta_link.cached_url ? `/${blok.cta_link.cached_url}` : blok.cta_link.url || '#'}>
 			{blok.cta_label}
-		</a>
+		</Button>
 	{/if}
 </section>

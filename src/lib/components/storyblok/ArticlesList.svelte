@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { storyblokEditable } from '$lib/storyblok'
+	import Heading from '$lib/components/atoms/Heading.svelte'
+	import Button from '$lib/components/atoms/Button.svelte'
 
 	let { blok } = $props()
 </script>
 
 <section use:storyblokEditable={blok}>
 	{#if blok.title}
-		<h2 class="text-2xl font-bold leading-tight text-brand-ink mb-8">{blok.title}</h2>
+		<Heading level={2} class="mb-8">{blok.title}</Heading>
 	{/if}
 
 	{#if blok.articles?.length}
@@ -27,22 +29,19 @@
 								/>
 							</a>
 						{/if}
-						<h3 class="text-xl font-bold leading-tight text-brand-ink mb-2">
+						<Heading level={3} class="mb-2">
 							<a href={`/${story.full_slug}`} class="hover:underline">
 								{story.content?.headline || story.name}
 							</a>
-						</h3>
+						</Heading>
 						{#if story.content?.subheadline}
 							<p class="text-sm text-brand-muted mb-4 leading-relaxed">
 								{story.content.subheadline}
 							</p>
 						{/if}
-						<a
-							href={`/${story.full_slug}`}
-							class="inline-flex items-center font-medium text-sm underline underline-offset-4 text-brand-accent hover:no-underline"
-						>
+						<Button href={`/${story.full_slug}`}>
 							Read more<span class="sr-only">: {story.content?.headline || story.name}</span>
-						</a>
+						</Button>
 					</article>
 				{/if}
 			{/each}
