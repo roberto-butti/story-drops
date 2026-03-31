@@ -90,50 +90,9 @@ src/
 
 ## Design system
 
-### Colors (defined in `layout.css` `@theme`)
+> Full design system reference: `.claude/skills/design-system.md`
 
-| Token | Value | Usage |
-|---|---|---|
-| `brand-ink` | `#111827` (gray-900) | Primary text, headings |
-| `brand-deep` | `#030712` (gray-950) | Hover states on dark backgrounds |
-| `brand-muted` | `#6B7280` (gray-500) | Secondary text, metadata |
-| `brand-sand` | `#E5E7EB` (gray-200) | Borders, dividers |
-| `brand-paper` | `#FFFFFF` | Backgrounds |
-| `brand-accent` | `#2563EB` (blue-600) | Links, CTAs, category badges, hover accents |
-
-### Typography
-
-- **Headings**: `font-serif font-extrabold tracking-tight text-brand-ink`
-- **H1**: `text-4xl lg:text-5xl` (article) or `text-5xl lg:text-6xl` (hero)
-- **H2**: `text-3xl`
-- **H3**: `text-xl font-bold`
-- **Body**: `font-sans text-base leading-relaxed` (Inter)
-- **Small/meta**: `font-sans text-sm text-brand-muted`
-
-### Spacing
-
-- **Page container**: `mx-auto max-w-3xl px-6 md:px-12 py-8 lg:py-16` (owned by Page.svelte)
-- **Vertical rhythm between bloks**: `space-y-12 lg:space-y-16` (owned by Page.svelte)
-- **Section internal spacing**: `space-y-6` between heading and content
-
-### Cards
-
-- Base: `rounded-xl border border-brand-sand p-6`
-- Hover: `hover:shadow-lg hover:border-transparent transition-all`
-- Title hover: `group-hover:text-brand-accent transition-colors` (with `group` on parent `<a>`)
-
-### Buttons
-
-- Primary: `bg-brand-accent text-white font-bold rounded-lg px-6 py-3 hover:bg-blue-700`
-
-### Category badges
-
-- `rounded-lg bg-blue-50 px-3 py-1 text-xs font-bold text-brand-accent`
-
-### Visual Editor outline
-
-- `.storyblok__outline` CSS class added by `storyblokEditable` action
-- Styled in `layout.css`: dashed teal outline on hover (`#09b3af`)
+Key tokens: `brand-ink` (gray-900), `brand-accent` (blue-600), `brand-muted` (gray-500), `brand-sand` (gray-200). Fonts: Inter (sans), Georgia (serif), JetBrains Mono (code). Standard padding: `px-4 sm:px-6 lg:px-8`. Page container: `max-w-3xl`. Article content: `max-w-2xl`.
 
 ---
 
@@ -193,12 +152,15 @@ Always acknowledge trade-offs. Readers are experienced — do not over-explain b
 
 ## Tone and writing style
 
-- Direct, warm, community-friendly.
-- No marketing language. No "powerful", "seamless", "robust".
-- Write for developers and advanced editors who already know Storyblok.
-- Short paragraphs. One idea per paragraph.
+> Full writing style guide: `.claude/skills/writing-style.md`
+
+- Professional but approachable. Write like a solution engineer, not a marketer or a professor.
+- No marketing language. No "powerful", "seamless", "robust", "revolutionary", "cutting-edge".
+- Short sentences, short paragraphs (3–4 lines max). One idea per paragraph.
+- Follow Problem → Solution → Impact structure for explanations.
 - Code examples should be minimal and illustrative, not production-complete boilerplate.
 - Reference official Storyblok docs rather than duplicating them.
+- Target audience: developers, solution engineers, technical architects, CTOs.
 
 ---
 
