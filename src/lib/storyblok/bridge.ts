@@ -50,12 +50,35 @@ export async function useStoryblokBridge(
 	}
 
 	bridge.on('input', (event: any) => {
+		console.log('[bridge] input', {
+			action: event.action,
+			storyId: event.story?.id,
+			storyName: event.story?.name,
+			slug: event.story?.slug,
+			publishedAt: event.story?.published_at,
+			firstPublishedAt: event.story?.first_published_at,
+			contentChanged: event.story?.id === storyId,
+			event
+		})
 		if (event.story && event.story.id === storyId) {
 			callback(event.story)
 		}
 	})
 
-	bridge.on(['change', 'published'], () => {
+	bridge.on(['change', 'published'], (event: any) => {
+		console.log('[bridge] change/published', {
+			action: event?.action,
+			storyId: event?.storyId,
+			event
+		})
 		window.location.reload()
+	})
+
+	bridge.on('enterEditmode', (event: any) => {
+		console.log('[bridge] enterEditmode', { event })
+	})
+
+	bridge.on('customEvent', (event: any) => {
+		console.log('[bridge] customEvent', { event })
 	})
 }
