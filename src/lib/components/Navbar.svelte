@@ -28,18 +28,18 @@
 
 <svelte:window onclick={closeDropdown} />
 
-<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:text-brand-accent focus:underline focus:rounded">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-brand-paper focus:px-4 focus:py-2 focus:text-brand-accent focus:underline focus:rounded">
 	Skip to content
 </a>
 
-<nav use:storyblokEditable={config} aria-label="Main navigation" class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-brand-sand">
+<nav use:storyblokEditable={config} aria-label="Main navigation" class="sticky top-0 z-40 bg-brand-paper/95 backdrop-blur-sm border-b border-brand-sand">
 	<div class="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
 		<a href="/" class="flex items-center gap-3">
 			<img src={icon} alt={config.title || 'Story Drops'} class="h-8 w-auto" />
 			<div class="flex flex-col">
-				<span class="text-xl font-bold text-brand-ink leading-none">{config.title || 'Story Drops'}</span>
+				<span class="font-heading text-xl font-bold leading-none bg-gradient-to-r from-brand-accent to-brand-glow bg-clip-text text-transparent">{config.title || 'Story Drops'}</span>
 				{#if config.tagline}
-					<span class="text-xs text-brand-muted">{config.tagline}</span>
+					<span class="text-xs text-violet-400">{config.tagline}</span>
 				{/if}
 			</div>
 		</a>
@@ -70,12 +70,12 @@
 									onkeydown={(e: KeyboardEvent) => { if (e.key === 'Escape') closeDropdown() }}
 									role="menu"
 									tabindex="-1"
-									class="absolute right-0 top-full mt-2 w-56 rounded-lg border border-brand-sand bg-white py-1 shadow-lg"
+									class="absolute right-0 top-full mt-2 w-56 rounded-lg border border-brand-sand bg-brand-paper py-1 shadow-lg"
 								>
 									<a
 										href={linkHref(item)}
 										onclick={closeDropdown}
-										class="block px-4 py-2 text-sm font-medium text-brand-ink hover:bg-gray-50 transition-colors"
+										class="block px-4 py-2 text-sm font-medium text-brand-ink hover:bg-brand-sand/40 transition-colors"
 									>
 										All articles
 									</a>
@@ -84,7 +84,7 @@
 										<a
 											href={`/${cat.full_slug}`}
 											onclick={closeDropdown}
-											class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-ink hover:bg-gray-50 transition-colors"
+											class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-ink hover:bg-brand-sand/40 transition-colors"
 										>
 											{cat.content?.name || cat.name}
 										</a>

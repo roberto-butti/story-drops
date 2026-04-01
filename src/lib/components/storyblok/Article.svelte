@@ -42,7 +42,7 @@
 					{#if typeof cat !== 'string'}
 						<a
 							href={`/${cat.full_slug}`}
-							class="inline-flex items-center rounded-lg bg-blue-50 px-3 py-1 hover:bg-blue-100 transition-colors"
+							class="inline-flex items-center rounded-lg bg-violet-50 px-3 py-1 hover:bg-violet-100 transition-colors"
 						>
 							<span class="font-sans text-xs font-bold text-brand-accent">
 								{cat.content?.name || cat.name}
@@ -52,7 +52,7 @@
 				{/each}
 			</div>
 		{/if}
-		<h1 class="mb-4 text-3xl font-extrabold leading-tight text-brand-ink lg:mb-6 lg:text-4xl">
+		<h1 class="font-heading mb-4 text-3xl font-extrabold leading-tight text-brand-ink lg:mb-6 lg:text-4xl">
 			{blok.headline}
 		</h1>
 		{#if blok.subheadline}
@@ -95,7 +95,7 @@
 			</Button>
 		</div>
 
-		<div class="prose prose-base sm:prose-base lg:prose-lg max-w-none text-brand-ink prose-headings:font-extrabold prose-headings:leading-tight prose-headings:text-brand-ink prose-a:text-brand-accent prose-a:underline prose-a:underline-offset-4 hover:prose-a:no-underline prose-img:rounded-lg prose-blockquote:border-brand-accent">
+		<div class="prose prose-base sm:prose-base lg:prose-lg max-w-none text-brand-ink prose-headings:font-heading prose-headings:font-extrabold prose-headings:leading-tight prose-headings:text-brand-ink prose-a:text-brand-accent prose-a:underline prose-a:underline-offset-4 hover:prose-a:no-underline prose-img:rounded-lg prose-blockquote:border-brand-accent">
 			{@html articleHtml}
 		</div>
 	{/if}
@@ -108,7 +108,7 @@
 		onkeydown={(e) => e.key === 'Escape' && (showMarkdown = false)}
 		onclick={(e) => e.target === e.currentTarget && (showMarkdown = false)}
 	>
-		<div class="relative max-h-[80vh] w-full max-w-2xl overflow-hidden rounded-lg bg-white shadow-2xl">
+		<div class="relative max-h-[80vh] w-full max-w-2xl overflow-hidden rounded-lg bg-brand-paper shadow-2xl">
 			<div class="flex items-center justify-between border-b border-brand-sand px-6 py-4">
 				<h2 class="font-sans text-sm font-bold text-brand-ink">Markdown output</h2>
 				<button

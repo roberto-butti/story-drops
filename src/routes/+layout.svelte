@@ -6,7 +6,7 @@
 	let { data, children } = $props();
 </script>
 
-<div class="flex min-h-screen flex-col bg-white antialiased">
+<div class="flex min-h-screen flex-col bg-brand-paper antialiased">
 	{#if data.config}
 		<Navbar config={data.config.content} categories={data.categories} />
 	{/if}

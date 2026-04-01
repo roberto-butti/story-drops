@@ -6,7 +6,7 @@
 </script>
 
 <section use:storyblokEditable={blok}>
-	<h1 class="text-4xl font-extrabold leading-tight text-brand-ink mb-4 lg:text-5xl">
+	<h1 class="font-heading text-4xl font-extrabold leading-tight text-brand-ink mb-4 lg:text-5xl">
 		{blok.headline}
 	</h1>
 	{#if blok.subheadline}

@@ -11,10 +11,10 @@
 <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 pt-8 pb-16 lg:pt-16 lg:pb-24">
 	<div class="space-y-12 lg:space-y-16">
 		<header use:storyblokEditable={blok}>
-			<span class="mb-4 inline-block rounded-lg bg-blue-50 px-3 py-1 font-sans text-xs font-bold text-brand-accent uppercase tracking-widest"
+			<span class="mb-4 inline-block rounded-lg bg-violet-50 px-3 py-1 font-sans text-xs font-bold text-brand-accent uppercase tracking-widest"
 				>Category</span
 			>
-			<h1 class="mb-4 text-3xl font-extrabold leading-tight text-brand-ink lg:mb-6 lg:text-4xl">
+			<h1 class="font-heading mb-4 text-3xl font-extrabold leading-tight text-brand-ink lg:mb-6 lg:text-4xl">
 				{blok.name}
 			</h1>
 			{#if descriptionHtml}

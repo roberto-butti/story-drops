@@ -17,7 +17,7 @@
 
 	const base = $derived(
 		variant === 'primary'
-			? 'inline-flex items-center gap-2 font-sans text-sm font-bold text-white bg-brand-accent rounded-lg px-6 py-3 hover:bg-blue-700 transition-colors'
+			? 'inline-flex items-center gap-2 font-sans text-sm font-bold text-white bg-brand-accent rounded-lg px-6 py-3 hover:bg-violet-700 transition-colors'
 			: 'inline-flex items-center font-medium text-sm underline underline-offset-4 text-brand-accent hover:no-underline'
 	)
 </script>

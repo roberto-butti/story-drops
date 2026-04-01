@@ -8,7 +8,7 @@
 	const descriptionHtml = $derived(blok.description ? renderRichText(blok.description) : '');
 </script>
 
-<section use:storyblokEditable={blok} class="bg-gray-50 rounded-lg p-6 md:p-8">
+<section use:storyblokEditable={blok} class="bg-brand-sand/30 rounded-lg p-6 md:p-8">
 	{#if blok.title}
 		<Heading level={2} class="mb-2">{blok.title}</Heading>
 	{/if}

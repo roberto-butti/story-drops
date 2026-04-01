@@ -20,7 +20,7 @@
 		'2xl': 'text-2xl'
 	}
 
-	const base = $derived(`${sizeClasses[size]} font-bold leading-tight text-brand-ink`)
+	const base = $derived(`${sizeClasses[size]} font-heading font-bold leading-tight text-brand-ink`)
 </script>
 
 {#if level === 2}
